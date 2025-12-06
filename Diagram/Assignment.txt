@@ -1,0 +1,136 @@
+---
+title Library 
+---
+
+classDiagram
+    Library_System "1" o-- "*" Member
+    Library_System "1" o-- "*" Librarian
+    Library_System "1" o-- "*" Book
+    Book "1" o-- "*" Book_Item
+    Book_Rack "1" o-- "*" Book_Item
+    Library_System "1" o-- "*" Book_Rack
+    Library_System "1" o-- "*" Book_Lending
+    Book_Item "1" <-- "1" Book_Lending
+    Book_Item "1" <-- "1" Book_Reservation
+    Member "1" <-- "1" Book_Lending
+    Member "1" <-- "1" Book_Reservation
+    Library_System "1" o-- "*" Book_Reservation
+
+    class Library_System{
+        +Book_Information
+        +Members
+        +Library_Members
+        +Loan_Recovery
+        +Add_Member()
+        +Add_Librarians()
+	+Remove_Members()
+	+Add_Book()
+	+Remove_Book()
+	+Add_BookRack()
+	+Remove_BookRack()
+	+Search_Book_by_ISBN()
+	+Search_Book_by_author()
+	+Search_Book_by_subject()
+	+Search_Book_by_BookRack()
+	+Search_BookRack_Number()
+	+Search_overdue_Book()
+	+Pending_Reservation()
+	+Lending_Books()
+	+Returning_Books_to_BookRack()
+	+Reserve_Books()
+        +Borrow_Money()
+    }
+
+    class Book{
+        +Book_Number
+        +ISBN_Number
+        +Book_Title
+        +Author_Name
+        +Book_Subject
+        +Publication_Date
+        +Book_Name
+        +Book_Shelf
+        +Category
+        +Location
+        +Available_Item()
+    }
+
+    class Book_Item{
+        +Book_Number
+        +Status
+        +Bookshelf
+        +Location
+        +Book_Lending()
+        +Book_Reservation()
+        +Check_Availability()
+        +Check_Out()
+    }
+
+    class Book_Rack{
+        +Rack_Number
+        +Location
+        +Find_Number_Books_in_rack()
+	+Find_Location_Books_in_rack()
+	+Adding_Book_to_Rack()
+	+Removing_Book_from_Rack()
+    }
+
+    class Book_Lending{
+        +Book_Item
+        +Member
+        +Issue_Date
+        +Due_Date
+        +Return_Date
+        +Status
+        +Return_Book()
+	+Display_Date_Time()
+    }
+
+    class Book_Reservation{
+        +Book_Item
+        +Member
+        +Reservation_Date
+        +Status
+        +Reserve_Book()
+        +Cancel_Reservation()
+        +Display_Date_Time()
+    }
+
+    class Member{
+        +Book_List
+        +Member_Name
+        +Member_ID
+        +Membership_Status
+        +Reserve_Person
+        +Start_Date
+        +Membership
+        +Search_Book()
+        +Date_Search()
+        +Reserve_Book()
+        +Cancel_Reservation()
+        +Cancel_Membership
+        +View_Information()
+        +Edit_Information()
+        +Borrow_Book()
+    }
+
+    class Librarian{
+        +Book_List
+        +Employee_Name
+        +Employee_ID
+        +Member_Status
+        +Start_Date
+        +Search_Book()
+        +Date_Search()
+        +Reserve_Book()
+        +Cancel_Reservation()
+        +Cancel_Membership
+        +View_Information()
+        +Edit_Information()
+        +Borrow_Book()
+        +Add_Book()
+        +Delete_Book()
+        +Edit_Book()
+        +Add_Member()
+        +Manage_Accounts()
+    }

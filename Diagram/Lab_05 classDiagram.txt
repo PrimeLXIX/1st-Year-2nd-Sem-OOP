@@ -1,0 +1,55 @@
+classDiagram
+    Member --o One_time_appointment
+    Member --o Weekly_appointment
+    Member --o Activity
+    Member --* AppointmentScheduler
+    AppointmentScheduler "1" *-- "*" Appointment
+    One_time_appointment --|> Appointment
+    Weekly_appointment --|> Appointment
+    Activity --|> Appointment
+
+    class AppointmentScheduler {
+        +List appointment_list
+	+List member_list
+	+add_member()
+	+add_attendance()
+    	+add_appointment()
+    	+edit_appointment()
+    	+delete_appointment()
+    	+view_appointments()
+    	+show_person_in_appointment()
+    	+send_notification()
+    }
+    class Appointment {
+    	+String topic
+    	+String location
+    	+String date
+    	+List attn
+    	+None type
+    	+add_attn()
+    	+attendance()
+    	+record()
+    	+edit_appointment()
+    }
+
+    class One_time_appointment {
+    	+String type
+    }
+
+    class Weekly_appointment {
+    	+String type
+    }
+
+    class Activity {
+    	+None attn
+    	+String type
+    }
+
+    class Member {
+    	+String name
+    	+String email
+    	+String telephone_number
+    	+String noti_type
+    	+String noti
+    	+notification()
+    }

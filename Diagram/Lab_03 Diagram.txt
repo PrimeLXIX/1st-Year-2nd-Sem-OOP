@@ -1,0 +1,77 @@
+classDiagram
+    class User {
+        -citizen_id: str
+        -name: str
+        +citizen_id: str
+        +full_name: str
+    }
+    
+    class Account {
+        -account_number: str
+        -owner: User
+        -balance: float
+        -transactions: List
+        +account_number: str
+        +owner: User
+        +balance: float
+        +transactions: List
+        +deposit(amount: float): void
+        +withdraw(amount: float): void
+        +add_transaction(transaction): void
+    }
+    
+    class ATMCard {
+        -card_number: str
+        -account: Account
+        -pin: str
+        +card_number: str
+        +account: Account
+        +pin: str
+        +balance: float
+        +account_number: str
+        +owner: User
+    }
+    
+    class ATMMachine {
+        -machine_id: str
+        -atm_balance: float
+        +machine_id: str
+        +atm_balance: float
+        +insert_card(card_number: str, pin: str): ATMCard
+        +deposit(account: Account, amount: float): str
+        +withdraw(account: Account, amount: float): str
+        +transfer(sender: Account, receiver: Account, amount: float): str
+    }
+    
+    class Transaction {
+        -transaction_type: str
+        -amount: float
+        -balance: float
+        -atm_id: str
+        -account_number: str
+        +__str__(): str
+    }
+    
+    class Bank {
+        -users: List
+        -accounts: List
+        -cards: List
+        -atms: List
+        +add_user(user: User): void
+        +add_account(account: Account): void
+        +add_card(card: ATMCard): void
+        +add_atm(atm: ATMMachine): void
+        +find_card(card_number: str): ATMCard
+        +find_account(account_number: str): Account
+        +get_atm(machine_id: str): ATMMachine
+    }
+
+    User --> Account : owns
+    Account --> ATMCard : links to
+    ATMCard --> ATMMachine : uses
+    ATMMachine --> Transaction : creates
+    Transaction --> Account : affects
+    Bank --> User : manages
+    Bank --> Account : manages
+    Bank --> ATMCard : manages
+    Bank --> ATMMachine : manages

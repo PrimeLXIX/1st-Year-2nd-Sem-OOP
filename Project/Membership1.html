@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Spa Membership</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f6f4f0;
+        }
+        .navbar {
+            background-color: #5a4635;
+        }
+        .navbar-brand, .nav-link, .user-name {
+            color: white !important;
+        }
+        .active {
+            background-color: #f39c12 !important;
+            color: white !important;
+        }
+        .header {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .membership-card {
+            border-radius: 15px;
+            min-height: 200px;
+        }
+        .bg-new { background-color: #d3d3d3; }
+        .bg-regular { background-color: #f39c12; }
+        .bg-premium { background-color: #f1c40f; }
+        .card-active {
+            border: 2px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-dark navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="customer_main.html">My Little Ponies Pet Spa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Appointment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Membership</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          John Doe
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                          <li><a class="dropdown-item" href="#">View Profile</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="#">Log Out</a></li>
+                        </ul>
+                      </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        <h1>Pet Spa Membership</h1>
+        <h2>Regular</h2>
+        <div class="input-group mt-3 justify-content-center" style="max-width: 200px;">
+            <span class="input-group-text">Spend</span>
+            <input type="text" class="form-control" value="1000 / 5000" readonly>
+        </div>
+    </header>
+
+    <main class="container my-5">
+        <h2 class="text-center mb-4"><strong>Types of Membership</strong></h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card membership-card bg-new text-center p-3">
+                    <h4>New</h4>
+                    <p>0% discount</p>
+                    <p class="small">You are new to this. Book more appointments to get a discount.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card membership-card bg-regular text-center p-3 card-active">
+                    <h4>Regular</h4>
+                    <p>10% discount</p>
+                    <p class="small">Congrats you have booked more than one appointment at this point. You will get more discount.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card membership-card bg-premium text-center p-3">
+                    <h4>Premium</h4>
+                    <p>30% discount</p>
+                    <p class="small">Congrats your membership have been upgraded to the max. At this point you will get more discount.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
